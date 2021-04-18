@@ -1,0 +1,30 @@
+.mobile_menu{
+    margin-top: 10px;
+    display: none;
+}
+
+.mobile_menu_inner{
+    position: fixed;
+    bottom: 0;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    right: 0;
+    left: 0;
+    background: #fff;
+    padding: 5px;
+}
+
+.mobile_menu{
+   height: 90px;
+}
+
+@media screen and (max-width: 450px) {
+    .side_menu{
+        display: none;
+    }
+
+    .mobile_menu{
+        display: block;
+    }
+}

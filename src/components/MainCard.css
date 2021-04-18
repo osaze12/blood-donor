@@ -1,0 +1,36 @@
+.currency_box {
+  font-weight: bold;
+  font-size: 1.3em;
+  background: #fff;
+  width: 50px;
+  height: 50px;
+  border-radius: 99px;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+}
+
+.card {
+  -webkit-box-shadow: 2px 1px 9px 0px #565656;
+          box-shadow: 2px 1px 9px 0px #565656;
+  padding: 10px;
+  margin: 2px;
+}
+
+.amount {
+  font-weight: bold;
+  color: #fff;
+  font-size: 1.5em;
+}
+
+.title {
+  color: #fff;
+  font-size: .8em;
+}
+/*# sourceMappingURL=MainCard.css.map */
