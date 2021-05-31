@@ -1,0 +1,12 @@
+.slider {
+  width: 400px;
+  max-width: 400px;
+  margin: 20px 0;
+}
+
+@media screen and (max-width: 450px) {
+  .slider {
+    max-width: 90vw;
+  }
+}
+/*# sourceMappingURL=Home.css.map */

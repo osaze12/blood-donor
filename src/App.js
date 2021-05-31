@@ -1,57 +1,134 @@
 
 import './App.css';
 import React from 'react';
-import 'antd/dist/antd.css';
-import {
-  BrowserRouter as Router,
-  Switch,
-  Route,
-} from "react-router-dom";
-import MainPage from './components/MainPage';
-import ActivityPage from './components/pages/ActivityPage';
-import WalletPage from './components/pages/WalletPage'
-import MarketPage from './components/pages/MarketPage';
-import EarnPage from './components/pages/EarnPage';
-import ErrorPage from './components/pages/ErrorPage';
+import {BrowserRouter as Router,Redirect,Route, Switch } from 'react-router-dom';
 import Nav from './components/Nav';
-import { Flex } from '@chakra-ui/layout';
-import { Box } from '@chakra-ui/layout';
-import SideNav from './components/SideNav';
-import MobileBottomNav from './components/MobileBottomNav';
+import Login from './components/Login';
+import Register from './components/Register'
+import Home from './components/Home';
+import RequestBlood from './components/RequestBlood';
+import Search from './components/Search';
+import DonorProfile from './components/DonorProfile';
 
 function App() {
+  const emergency = [
+    {
+      bloodGroup: "A+",
+      patientName: 'Damilola',
+      currentTown: "lagos",
+      hospitalAddress: '23, oloke hospital Road',
+      fullname: "Agbi Osaze",
+      dateRequired: "23-02-2021",
+      tel: "08113253726",
+      doctorName: 'Olashobu',
+      
+    },
+    {
+      bloodGroup: "A+",
+      personContact: 'Damilola',
+      currentTown: "lagos",
+      hospitalAddress: '23, oloke hospital Road',
+      fullname: "Agbi Osaze",
+      dateRequired: "23-02-2021",
+      tel: "08113253726",
+      doctorName: 'Olashobu',
+      
+    }
+  ]
+
+
+  const patient = [
+                {
+                  bloodGroup: "A+",
+                  city: "lagos",
+                  email: "osaze@gmail.com",
+                  fullname: "Agbi Osaze",
+                  gender: "male",
+                  lastDonateDate: "23-02-2021",
+                  msg: "empty",
+                  password: "123",
+                  tel: "08113253726",
+                  username: "Osaze12",
+                  weight: "2.3"
+                },
+                  {
+                    bloodGroup: "A+",
+                    city: "lagos",
+                    email: "osaze@gmail.com",
+                    fullname: "Agbi Osaze",
+                    gender: "male",
+                    lastDonateDate: "23-02-2021",
+                    msg: "empty",
+                    password: "123",
+                    tel: "08113253726",
+                    username: "Osaze12",
+                    weight: "2.3"
+                  },
+                  {
+                    bloodGroup: "Aminus",
+                    city: "Abuja",
+                    email: "favour@gmail.com",
+                    fullname: "Tobi Favour",
+                    gender: "female",
+                    lastDonateDate: "25-02-2021",
+                    msg: "empty",
+                    password: "123",
+                    tel: "08073287634",
+                    username: "fav222",
+                    weight: "2.2" 
+                  },
+                  {
+                    bloodGroup: "Aplus",
+                    city: "Ogun state",
+                    email: "kingsley@gmail.com",
+                    fullname: "Kingsley Tawa",
+                    gender: "male",
+                    lastDonateDate: "25-02-2021",
+                    msg: "empty",
+                    password: "123",
+                    tel: "09086757456",
+                    username: "tata",
+                    weight: "2.2" 
+                  }
+  ]
+
+
+  if (!localStorage.getItem("patient")){
+    localStorage.setItem("patient", JSON.stringify(patient));
+  }
+
+  if (!localStorage.getItem("emergency")){
+    localStorage.setItem("emergency", JSON.stringify(emergency))
+  }
   
+
   return (
-    <Router>
       <div className="App">
-        <Nav/>
+        <Router>
+          <Nav />
+          <div className="main__view" style={{display: "flex", justifyContent: "center"}}>
+       
+              <Switch>
+                  <Route path="/login" component={Login} />
+                  <Route path="/register" component={Register} />
+                  <Route path="/request_blood" component={RequestBlood} />
+                  <Route path="/search" component={Search} />
+                  <Route path="/profile" component={DonorProfile} />
+                  <Route path="/logout" render={() => {
+                    localStorage.removeItem("singleUser");
+                    return <Redirect to="/" />
 
-        <Flex>
-          <Box className='side_menu' >
-              <SideNav />
-          </Box>
+                  }} />
 
-          <Box className='pages' flex='1'>
-            <Switch>  
-              <Route path="/home" component={MainPage} />
-              <Route path="/activity" component={ActivityPage} />
-              <Route path="/wallet" component={WalletPage} />
-              <Route path="/market" component={MarketPage} />
-              <Route path="/earn" component={EarnPage} />
-              <Route path="/" component={MainPage} />
-              <Route component={ErrorPage} />
-            </Switch>
-          </Box>
-        </Flex>
-        
-        <Box className='mobile_menu'>
-                <Box className='mobile_menu_inner'>
-                    <MobileBottomNav />
-                </Box>
-            </Box>
-        
+                  <Route path="/" exact component={Home} />
+                  
+                  <Route component={Home}/>
+              </Switch>
+
+      
+          </div>
+        </Router>
       </div>
-    </Router>
   );
 }
 

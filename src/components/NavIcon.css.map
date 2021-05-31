@@ -1,9 +1,0 @@
-{
-    "version": 3,
-    "mappings": "AAAA,AAAA,QAAQ,CAAA;EACJ,SAAS,EAAE,gBAAgB;CAC9B;;AAED,AAAA,SAAS,CAAA;EACL,KAAK,EAAE,kBAAkB;CAC5B;;AACD,AAAA,OAAO,CAAA;EACH,KAAK,EAAE,cAAc;CACxB",
-    "sources": [
-        "NavIcon.scss"
-    ],
-    "names": [],
-    "file": "NavIcon.css"
-}

@@ -1,0 +1,35 @@
+.search-btn{
+    padding: 20px;
+    margin: 0 5px;
+}
+.box{
+    background: #ffeaea;
+    display: flex;
+    // justify-content: center;
+    align-content: center;
+    border-radius: 8px;
+    margin: 10px;
+    padding: 5px;
+    font-size: .8em;
+}
+.error{
+    text-align: center;
+    margin: 10px;
+    color: #ff5858;
+    font-weight: bold;
+}
+
+.inputs{
+    display: flex;
+    flex-direction: row;
+}
+
+@media screen and (max-width: 450px) {
+    .search-btn{
+        margin: 5px 0;
+    }
+    
+    .inputs{
+        flex-direction: column;
+    }
+}
